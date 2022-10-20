@@ -8,9 +8,9 @@ jobs:
       - uses: actions/checkout@v3
       - run: cd docs
       - run: make clean html
-      - uses: actions/upload-pages-artifact
-        with:
-          path: _build
+      # - uses: actions/upload-pages-artifact
+      #   with:
+      #     path: _build
   # deploy:
   #   needs: build-docs
   #   runs-on: ubuntu-latest
