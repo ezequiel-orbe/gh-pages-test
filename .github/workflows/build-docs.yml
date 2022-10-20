@@ -4,6 +4,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: sphinxdoc/sphinx:latest
+
     steps:
       - uses: actions/checkout@v3
       - run: |
