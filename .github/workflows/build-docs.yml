@@ -16,16 +16,15 @@ jobs:
         with:
           # Path of the directory containing the static assets.
           path: docs/_build/html
-
-
-# deploy:
-  #   needs: build-docs
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     pages: write # to deploy to Pages
-  #     id-token: write
-  #   environment:
-  #     name: github-pages
-  #     url: ${{ steps.deployment.outputs.page_url }}
-  #   steps:
-  #     - uses: action/deploy-pages@v1
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages site
+        uses: actions/deploy-pages@v1.2.2
