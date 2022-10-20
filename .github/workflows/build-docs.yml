@@ -2,7 +2,7 @@ name: build-docs
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
-  build-docs:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -11,14 +11,14 @@ jobs:
       - uses: actions/upload-pages-artifact
         with:
           path: _build
-  deploy-docs:
-    needs: build-docs
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write # to deploy to Pages
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: action/deploy-pages@v1
+  # deploy:
+  #   needs: build-docs
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     pages: write # to deploy to Pages
+  #     id-token: write
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   steps:
+  #     - uses: action/deploy-pages@v1
