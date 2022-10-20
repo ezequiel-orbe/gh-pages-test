@@ -6,8 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: cd docs
-      - run: make clean html
+      - run: |
+          cd docs
+          make clean html
       # - uses: actions/upload-pages-artifact
       #   with:
       #     path: _build
